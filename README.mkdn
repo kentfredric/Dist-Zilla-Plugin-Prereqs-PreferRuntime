@@ -1,0 +1,41 @@
+# NAME
+
+Dist::Zilla::Plugin::Prereqs::PreferRuntime - Move dependencies to `runtime.requires` where possible.
+
+# VERSION
+
+version 0.001000
+
+# SYNOPSIS
+
+This, like [`Dist::Zilla::Plugin::Prereqs::SyncVersions`](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Prereqs::SyncVersions),
+exists to keep your published requirements simple.
+
+This, unlike its friend, this removes dependencies where possible.
+
+    runtime.requires = 6     runtime.requires = 6
+    build.requires   = 6  →
+    test.requires    = 6
+
+    runtime.requires = 7     runtime.requires = 7
+    build.requires   = 6  →
+    test.requires    = 6
+
+    runtime.requires = 5     runtime.requires = 5
+    build.requires   = 6  →  build.requires   = 6
+    test.requires    = 6
+
+    runtime.requires = 5     runtime.requires = 5
+    build.requires   = 6  →  build.requires   = 6
+    test.requires    = 7     test.requires    = 7
+
+# AUTHOR
+
+Kent Fredric <kentfredric@gmail.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
